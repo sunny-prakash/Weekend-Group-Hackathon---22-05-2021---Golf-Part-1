@@ -11,6 +11,7 @@ class App extends Component {
         };
         this.renderChoice = this.renderBallOrButton.bind(this);
         this.buttonClickHandler = this.buttonClickHandler.bind(this);
+        this.num = 0;
     }
 
     buttonClickHandler() {
@@ -28,7 +29,8 @@ class App extends Component {
     componentDidMount() {
         document.addEventListener("keydown", (e) => {
             if (e.key === "ArrowRight") {
-                this.setState({ ballPosition: { left: "5px" } });
+                this.num += 5;
+                this.setState({ ballPosition: { left: `${this.num}px` } });
             }
         });
     }
